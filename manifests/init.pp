@@ -63,7 +63,6 @@ class schematf (
   #should the service be managed
 ) inherits schematf::params {
 
-  validate_string()
 
   case $::osfamily {
 
