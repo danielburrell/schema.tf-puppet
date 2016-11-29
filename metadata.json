@@ -1,6 +1,6 @@
 {
   "name": "danielburrell-schematf",
-  "version": "0.2.0",
+  "version": "0.3.0",
   "author": "danielburrell",
   "summary": "Manage the installation of a Schema.TF",
   "license": "MIT",
@@ -8,7 +8,9 @@
   "project_page": "https://github.com/danielburrell/schema.tf-puppet",
   "issues_url": "https://github.com/danielburrell/schema.tf-puppet/issues",
   "dependencies": [
-    {"name":"puppetlabs-stdlib","version_requirement":">= 1.0.0"}
+    {"name":"puppetlabs-stdlib","version_requirement":">= 1.0.0"},
+    {"name":"puppetlabs/apt","version_requirement":">=1.8.0 <3.0.0"},
+    {"name":"tylerwalts-jdk_oracle","version_requirement":">=1.5.0"}
   ]
 }
 
