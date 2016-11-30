@@ -16,13 +16,10 @@ class schematf::install(
 		password       => '*',
 	}
 
-
-	class { 'jdk_oracle': }
-
   package { 'schematf':
 	  name     => $package_name,
 	  ensure   => $version,
-	  require  => Apt::Source['fury'],
+	  require  => Class['::ppa'],
   }
 
 }

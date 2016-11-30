@@ -4,6 +4,8 @@ class schematf::service(
   $service_name   = $schematf::service_name,
 ) inherits schematf {
 
+  require jdk_oracle
+  
   validate_re($service_ensure, '^(running|stopped)$')
   validate_bool($service_manage)
 
@@ -22,7 +24,7 @@ class schematf::service(
       hasstatus  => true,
       hasrestart => true,
       name       => $service_name,
-	    require    => [Package['schematf'], Class['jdk_oracle']]
+	    require    => Package['schematf']
     }
   }
 

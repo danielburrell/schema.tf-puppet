@@ -67,7 +67,7 @@ class schematf (
   case $::osfamily {
 
     'Debian': {
-      class { '::schematf::repo::apt' :
+      class { '::ppa' :
        repo_key  => $repo_key
       }
       $package_require = Class['apt::update']
