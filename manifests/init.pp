@@ -54,12 +54,12 @@ class schematf (
 
   #port the web service should listen on
   $server_port,
-  #encyrption key and initialization vector for cookies
+  #encyrption key and initialization vector for cookies in future
   #$encryption_key,
   #$encryption_iv,
   #github key for oauth
   $domain             = $schematf::params::domain,
-  $repos_ensure               = $schematf::params::repos_ensure,
+  $repos_ensure       = $schematf::params::repos_ensure,
   #should the service be managed
 ) inherits schematf::params {
 
@@ -67,8 +67,11 @@ class schematf (
   case $::osfamily {
 
     'Debian': {
-      class { '::ppa' :
-       repo_key  => $repo_key
+      if ! defined(Class['::ppa']) {
+        class { '::ppa' :
+         repo_key  => $repo_key,
+         allow_unsigned => true
+        }
       }
       $package_require = Class['apt::update']
     }
